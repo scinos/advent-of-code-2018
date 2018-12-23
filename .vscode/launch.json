@@ -8,6 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Mocha Tests",
+            "runtimeVersion": "11.5.0",
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
             "args": [
                 "-u",
