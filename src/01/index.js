@@ -1,9 +1,8 @@
 module.exports = {
-  challenge1: input => input.split(/[,\n]/g).reduce((freq, change) => freq + Number(change), 0),
+  challenge1: input => input.reduce((freq, change) => freq + Number(change), 0),
 
-  challenge2: input => {
+  challenge2: changes => {
     let counter = 0;
-    const changes = input.split(/[,\n]/g);
     const frequencies = {
       0: 1,
     };
