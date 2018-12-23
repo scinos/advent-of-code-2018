@@ -27,7 +27,7 @@ describe('Day 1', async () => {
       expect(challenge2('+7, +7, -2, -7, -4')).to.equal(14);
     });
 
-    it.only('Input', async () => {
+    it.only('Input2', async () => {
       const input = await fs.readFile(path.join(__dirname, 'input.txt'), 'utf8');
       expect(challenge2(input)).to.equal(227);
     });
