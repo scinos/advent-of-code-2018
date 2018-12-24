@@ -20,5 +20,7 @@ module.exports = {
         'no-constant-condition': 'off',
         'no-restricted-syntax': 'off',
         'no-return-assign': 'off',
+        'no-loop-func': 'off',
+        'no-continue': 'off'
     }
 }
