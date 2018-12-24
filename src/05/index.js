@@ -11,22 +11,21 @@ const isReaction = (input, a, b) => {
 };
 
 const reduce = polymer => {
-  for (let i = 0; i < polymer.length; i++) {
-    if (isReaction(polymer, i, i + 1)) {
-      polymer = polymer.substring(0, i) + polymer.substring(i + 2);
+  let reducedPolymer = polymer;
+  for (let i = 0; i < reducedPolymer.length; i += 1) {
+    if (isReaction(reducedPolymer, i, i + 1)) {
+      reducedPolymer = reducedPolymer.substring(0, i) + reducedPolymer.substring(i + 2);
       i -= 2;
     }
   }
-  return polymer;
+  return reducedPolymer;
 };
 
-module.exports.challenge1 = input => {
-  return reduce(input);
-};
+module.exports.challenge1 = input => reduce(input);
 module.exports.challenge2 = input => {
   let min = Infinity;
 
-  for (let i = 97; i <= 122; i++) {
+  for (let i = 97; i <= 122; i += 1) {
     const newInput = input.replace(new RegExp(String.fromCharCode(i), 'gi'), '');
     min = Math.min(reduce(newInput).length, min);
   }

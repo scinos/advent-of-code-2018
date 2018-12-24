@@ -12,7 +12,13 @@ module.exports = {
         mocha: true
     },
     extends: [
+        'airbnb-base',
         'plugin:prettier/recommended',
         'plugin:mocha/recommended'
     ],
+    rules: {
+        'no-constant-condition': 'off',
+        'no-restricted-syntax': 'off',
+        'no-return-assign': 'off',
+    }
 }

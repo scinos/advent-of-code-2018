@@ -14,8 +14,8 @@ const aggregateSchedule = input => {
     if (entry.includes('Guard')) {
       // If the previous guard was asleep at the end of the night
       if (lastStatus === 'asleep') {
-        for (let i = minuteSleep; i <= 59; i++) {
-          schedule[id][i] = schedule[id][i] + 1;
+        for (let i = minuteSleep; i <= 59; i += 1) {
+          schedule[id][i] += 1;
         }
       }
       id = Number(entry.match(extractGuardId)[1]);
@@ -26,8 +26,8 @@ const aggregateSchedule = input => {
     } else if (entry.includes('wakes up')) {
       minuteWakeUp = Number(entry.match(extractMinute)[1]);
       lastStatus = 'awake';
-      for (let i = minuteSleep; i < minuteWakeUp; i++) {
-        schedule[id][i] = schedule[id][i] + 1;
+      for (let i = minuteSleep; i < minuteWakeUp; i += 1) {
+        schedule[id][i] += 1;
       }
     }
   });
@@ -38,7 +38,7 @@ const aggregateSchedule = input => {
 const findMax = map => {
   let maxId;
   let maxValue = 0;
-  for (let i = 0; i < map.length; i++) {
+  for (let i = 0; i < map.length; i += 1) {
     if (map[i] > maxValue) {
       maxId = i;
       maxValue = map[i];

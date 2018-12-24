@@ -9,35 +9,25 @@ const parse = claim => {
   };
 };
 
-const transpose = (a, w, h) => {
-  const t = Array.from({ length: w }, l => Array.from({ length: h }));
-  for (let i = 0; i <= w; i++) {
-    for (let h = 0; i <= h; i++) {
-      t[h][i] = a[i][h];
-    }
-  }
-  return t;
-};
-
 module.exports.challenge1 = input => {
   const WIDTH = 1000;
   const LENGTH = 1000;
-  const fabric = Array.from({ length: WIDTH }, l => Array.from({ length: LENGTH }, () => 0));
+  const fabric = Array.from({ length: WIDTH }, () => Array.from({ length: LENGTH }, () => 0));
 
   for (const claim of input) {
     const { x, y, w, h } = parse(claim);
-    for (let i = x; i < x + w; i++) {
-      for (let j = y; j < y + h; j++) {
-        fabric[i][j]++;
+    for (let i = x; i < x + w; i += 1) {
+      for (let j = y; j < y + h; j += 1) {
+        fabric[i][j] += 1;
       }
     }
   }
 
   let countOverlap = 0;
-  for (let i = 0; i < WIDTH; i++) {
+  for (let i = 0; i < WIDTH; i += 1) {
     const column = fabric[i];
-    for (let h = 0; h < LENGTH; h++) {
-      if (column[h] > 1) countOverlap++;
+    for (let h = 0; h < LENGTH; h += 1) {
+      if (column[h] > 1) countOverlap += 1;
     }
   }
 
@@ -47,26 +37,25 @@ module.exports.challenge1 = input => {
 module.exports.challenge2 = input => {
   const WIDTH = 1000;
   const LENGTH = 1000;
-  const fabric = Array.from({ length: WIDTH }, l => Array.from({ length: LENGTH }, () => []));
+  const fabric = Array.from({ length: WIDTH }, () => Array.from({ length: LENGTH }, () => []));
 
   const ids = [];
 
   for (const claim of input) {
     const { id, x, y, w, h } = parse(claim);
     ids.push(false);
-    for (let i = x; i < x + w; i++) {
-      for (let j = y; j < y + h; j++) {
+    for (let i = x; i < x + w; i += 1) {
+      for (let j = y; j < y + h; j += 1) {
         fabric[i][j].push(id);
       }
     }
   }
 
-  let countOverlap = 0;
-  for (let i = 0; i < WIDTH; i++) {
+  for (let i = 0; i < WIDTH; i += 1) {
     const column = fabric[i];
-    for (let h = 0; h < LENGTH; h++) {
+    for (let h = 0; h < LENGTH; h += 1) {
       if (column[h].length > 1) {
-        for (let j = 0; j < column[h].length; j++) {
+        for (let j = 0; j < column[h].length; j += 1) {
           const id = column[h][j];
           ids[id - 1] = true;
         }

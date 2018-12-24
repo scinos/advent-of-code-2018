@@ -9,7 +9,6 @@ module.exports = {
     let frequency = 0;
 
     while (true) {
-      frequencies;
       const change = Number(changes[counter]);
       frequency += change;
       frequencies[frequency] = (frequencies[frequency] || 0) + 1;

@@ -8,13 +8,13 @@ module.exports.challenge1 = input => {
 
     let found2;
     let found3;
-    for (let [k, v] of Object.entries(letters)) {
+    for (const [, v] of Object.entries(letters)) {
       if (v === 2 && !found2) {
-        number2++;
+        number2 += 1;
         found2 = true;
       }
       if (v === 3 && !found3) {
-        number3++;
+        number3 += 1;
         found3 = true;
       }
       if (found2 && found3) return;
@@ -25,21 +25,21 @@ module.exports.challenge1 = input => {
 };
 
 module.exports.challenge2 = boxes => {
-  for (let i = 0; i < boxes.length; i++) {
+  for (let i = 0; i < boxes.length; i += 1) {
     const box = boxes[i];
 
-    for (let h = i + 1; h < boxes.length; h++) {
+    for (let h = i + 1; h < boxes.length; h += 1) {
       const candidateBox = boxes[h];
 
       let differences = 0;
-      for (let j = 0; j < box.length; j++) {
+      for (let j = 0; j < box.length; j += 1) {
         if (box[j] !== candidateBox[j]) {
-          differences++;
+          differences += 1;
         }
       }
       if (differences === 1) {
         let common = '';
-        for (let j = 0; j < box.length; j++) {
+        for (let j = 0; j < box.length; j += 1) {
           if (box[j] === candidateBox[j]) {
             common += box[j];
           }
@@ -48,4 +48,5 @@ module.exports.challenge2 = boxes => {
       }
     }
   }
+  return null;
 };
