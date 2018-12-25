@@ -21,6 +21,7 @@ module.exports = {
         'no-restricted-syntax': 'off',
         'no-return-assign': 'off',
         'no-loop-func': 'off',
-        'no-continue': 'off'
+        'no-continue': 'off',
+        'no-cond-assign': 'off'
     }
 }
