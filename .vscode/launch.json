@@ -8,7 +8,10 @@
             "type": "node",
             "request": "launch",
             "name": "Mocha Tests",
-            "runtimeVersion": "11.5.0",
+            // "runtimeArgs": [
+            //     "--inspect=0.0.0.0:9222",
+            //     "--inspect-brk"
+            // ],
             "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
             "args": [
                 "-u",
@@ -18,7 +21,7 @@
                 "--colors",
                 "${workspaceFolder}/src/**/test.js"
             ],
-            "internalConsoleOptions": "openOnSessionStart"
+            "internalConsoleOptions": "openOnSessionStart",
         }
     ]
 }
